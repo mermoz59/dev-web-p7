@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 exports.signup = (req, res, next) => {
-    bcrypt.hash(req.body.password, 10)
+    bcrypt.hash(req.body.password, 10) 
     .then(hash => {
        const user = new User({
         email: req.body.email,
@@ -13,7 +13,7 @@ exports.signup = (req, res, next) => {
         .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
         .catch(error => res.status(400).json({ error }));
     })
-    .catch(error => res.status(500).json({ message: 'C quoi ca', error }));
+    .catch(error => res.status(500).json({ message: 'Amine il y a un problème', error }));
 };
 
 exports.login = (req, res, next) => {
